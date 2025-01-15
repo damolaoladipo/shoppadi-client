@@ -4,6 +4,15 @@
 /node_modules
 /.pnp
 .pnp.js
+.env
+.trunk
+.txt
+*/.txt
+/.txt
+*.txt
+*/.txt
+# testing
+/coverage
 
 # testing
 /coverage
