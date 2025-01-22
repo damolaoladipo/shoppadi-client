@@ -1,4 +1,4 @@
-import { ChangeEvent, RefObject } from "react"
+import { ChangeEvent, ReactNode, RefObject } from "react"
 
 export interface IStorage {
     keepData(key: string, data: object | string ): void
@@ -78,3 +78,17 @@ export interface IIconButton {
         height?: string
     }
 }
+
+
+export interface IAuthState {
+  user: Record<string, any> | null;
+}
+
+export interface IAuthProvider {
+  children: ReactNode;
+}
+
+export type TAuthAction =
+  | { type: "LOGIN"; payload: Record<string, any> }
+  | { type: "LOGOUT" }
+  | { type: "SET_USER"; payload: Record<string, any> };
