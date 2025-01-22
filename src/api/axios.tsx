@@ -1,5 +1,6 @@
 import axios from "axios";
-import Auth from "./Auth";
+import Auth from "./auth";
+
 
 
 const BaseURL = process.env.SHOPERY_API_URL_LOCAL
@@ -38,7 +39,7 @@ axiosPrivate.interceptors.response.use(
     function (error) {
         if (error?.response?.status === 403) {
             localStorage.removeItem("authToken")
-            window.location.href = "/loggin"
+            window.location.href = "/login"
         }
         return Promise.reject(error)
     }

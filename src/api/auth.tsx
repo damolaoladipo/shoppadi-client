@@ -14,6 +14,10 @@ class Auth {
     login(payload: any) {
       return this.client.post("/auth/login", payload);
     }
+
+    logout(payload: any) {
+      return this.client.post("/auth/logout", payload);
+    }
   
     forgotPassword(payload: any) {
       return this.client.put("/auth/forgot-password", payload);
@@ -21,7 +25,8 @@ class Auth {
 
     changePassword(payload: any) {
         return this.secondaryClient.put("/auth/change-password", payload);
-      }
+    }
+    
   }
   
   export default Auth;

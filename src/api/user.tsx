@@ -13,8 +13,8 @@ class User {
       return this.client.put("/user", payload);
     }
   
-    getAllUsers() {
-      return this.client.get("/user/allusers");
+    getAllUsers(payload: any) {
+      return this.client.get("/user/allusers", payload);
     }
   }
   
