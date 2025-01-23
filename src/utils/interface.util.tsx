@@ -1,4 +1,5 @@
 import { ChangeEvent, ReactNode, RefObject } from "react"
+import { IProduct } from "./freshcart.util"
 
 export interface IStorage {
     keepData(key: string, data: object | string ): void
@@ -88,7 +89,13 @@ export interface IAuthProvider {
   children: ReactNode;
 }
 
-export type TAuthAction =
-  | { type: "LOGIN"; payload: Record<string, any> }
-  | { type: "LOGOUT" }
-  | { type: "SET_USER"; payload: Record<string, any> };
+export interface IProductState {
+    products: IProduct[];
+    selectedProduct: IProduct | null;
+    loading: boolean;
+    error: string | null;
+  }
+  
+export interface IProductProvider {
+    children: ReactNode;
+  }

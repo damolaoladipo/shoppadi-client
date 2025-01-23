@@ -1,4 +1,5 @@
-import { IAuthState, TAuthAction } from "../../utils/interface.util";
+import { IAuthState } from "../../utils/interface.util";
+import { TAuthAction } from "../../utils/type.util";
 
 
 export const authReducer = (
