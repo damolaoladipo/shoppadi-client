@@ -1,5 +1,5 @@
 import { ChangeEvent, ReactNode, RefObject } from "react"
-import { ICartItem, IProduct } from "./freshcart.util"
+import { ICartItem, IOrder, IProduct } from "./freshcart.util"
 
 export interface IStorage {
     keepData(key: string, data: object | string ): void
@@ -114,6 +114,14 @@ export interface IOrderProvider {
     children: ReactNode;
   }
 
+export interface IOrderState {
+  orders: IOrder[];
+  loading: boolean;
+    error: string | null;
+}
+
+
 export interface ITransactionProvider {
     children: ReactNode;
   }
+
