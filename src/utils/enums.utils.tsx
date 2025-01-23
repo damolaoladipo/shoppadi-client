@@ -108,6 +108,11 @@ export enum Currency {
     ZAR = "ZAR"
 }
 
+export enum TransactionStatus {
+    PENDING = 'PENDING',
+    COMPLETED = 'COMPLETED',
+    FAILED = 'FAILED',
+  }
 
 export enum PaymentPartners {
     PAYSTACK = "Paystack",

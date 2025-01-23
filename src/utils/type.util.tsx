@@ -1,4 +1,4 @@
-import { ShipmentStatus } from "./enums.utils";
+import { OrderStatus, ShipmentStatus, TransactionStatus } from "./enums.utils";
 import { ICartItem, IOrder, IOrderItem, IProduct, IShipment, ITransaction } from "./freshcart.util";
 
 export type TAuthAction =
@@ -21,7 +21,7 @@ export type TCartAction =
 export type TOrderAction =
   | { type: 'ADD_ORDER'; payload: IOrder }
   | { type: 'CANCEL_ORDER'; payload: string }
-  | { type: 'UPDATE_ORDER_STATUS'; payload: { id: string; status: 'PENDING' | 'COMPLETED' | 'CANCELLED' } };
+  | { type: 'UPDATE_ORDER_STATUS'; payload: { id: string; status: OrderStatus } };
 
 export type TOrderItemAction =
   | { type: 'ADD_ORDER_ITEM'; payload: IOrderItem }
@@ -30,7 +30,7 @@ export type TOrderItemAction =
 
 export type TTransactionAction =
   | { type: 'ADD_TRANSACTION'; payload: ITransaction }
-  | { type: 'UPDATE_TRANSACTION_STATUS'; payload: { id: string; status: 'PENDING' | 'COMPLETED' | 'FAILED' } };
+  | { type: 'UPDATE_TRANSACTION_STATUS'; payload: { id: string; status: TransactionStatus } };
 
 
 export type TShipmentAction =
