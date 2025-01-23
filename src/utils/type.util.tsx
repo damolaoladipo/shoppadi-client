@@ -1,4 +1,4 @@
-import { ICartItem, IOrder, IProduct } from "./freshcart.util";
+import { ICartItem, IOrder, IOrderItem, IProduct } from "./freshcart.util";
 
 export type TAuthAction =
   | { type: "LOGIN"; payload: Record<string, any> }
@@ -22,3 +22,8 @@ export type TOrderAction =
   | { type: 'ADD_ORDER'; payload: IOrder }
   | { type: 'CANCEL_ORDER'; payload: string }
   | { type: 'UPDATE_ORDER_STATUS'; payload: { id: string; status: 'PENDING' | 'COMPLETED' | 'CANCELLED' } };
+
+export type TOrderItemAction =
+  | { type: 'ADD_ORDER_ITEM'; payload: IOrderItem }
+  | { type: 'REMOVE_ORDER_ITEM'; payload: string }
+  | { type: 'UPDATE_ORDER_ITEM'; payload: IOrderItem };
