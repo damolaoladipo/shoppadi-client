@@ -1,3 +1,6 @@
+import { ShipmentStatus } from "./enums.utils";
+
+
 // Role Interface
 export interface IRole {
   user: string;
@@ -191,7 +194,7 @@ export interface IShipment {
   carrier: string;
   address: IAddress;
   trackingNumber: string;
-  status: string;
+  status: ShipmentStatus;
   shipmentDate: string;
   createdAt: string;
   updatedAt: string;

@@ -1,5 +1,5 @@
 import { ChangeEvent, ReactNode, RefObject } from "react"
-import { ICartItem, IOrder, IOrderItem, IProduct, ITransaction } from "./freshcart.util"
+import { ICartItem, IOrder, IOrderItem, IProduct, IShipment, ITransaction } from "./freshcart.util"
 
 export interface IStorage {
     keepData(key: string, data: object | string ): void
@@ -137,4 +137,9 @@ export interface ITransactionState {
     loading: boolean;
     error: string | null;
   }
+
+export interface IShipmentState {
+    shipments: IShipment[];
+  }
+  
   
