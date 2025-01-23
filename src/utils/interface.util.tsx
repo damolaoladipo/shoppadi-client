@@ -1,5 +1,13 @@
 import { ChangeEvent, ReactNode, RefObject } from "react"
-import { ICartItem, IOrder, IOrderItem, IProduct, IShipment, ITransaction } from "./freshcart.util"
+import { 
+  IAddress, 
+  ICartItem, 
+  IOrder, 
+  IOrderItem, 
+  IProduct, 
+  IShipment, 
+  ITransaction 
+} from "./freshcart.util"
 
 export interface IStorage {
     keepData(key: string, data: object | string ): void
@@ -141,5 +149,12 @@ export interface ITransactionState {
 export interface IShipmentState {
     shipments: IShipment[];
   }
-  
+export interface IAddressState {
+    addresses: IAddress[];
+  }
+
+  export interface IProvider {
+    children: ReactNode;
+  }
+
   
