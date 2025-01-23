@@ -207,3 +207,11 @@ export interface INotification {
   updatedAt: string;
   id: string;
 }
+
+export interface ICartItem {
+  id: string;
+  name: string;
+  price: number;
+  quantity: number;
+  imageURL: string;
+}
