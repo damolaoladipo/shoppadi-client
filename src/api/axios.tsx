@@ -1,5 +1,15 @@
 import axios from "axios";
 import Auth from "./auth";
+import Address from "./address";
+import Cart from "./cart";
+import { notification } from "antd";
+import Notification from "./notifcation";
+import Order from "./order";
+import OrderItem from "./orderitem";
+import Product from "./product";
+import Shipment from "./shipment";
+import User from "./user";
+import Wishlist from "./wishlist";
 
 
 
@@ -17,7 +27,16 @@ export const axiosPrivate = axios.create({
 })
 
 const api = {
-    auth: new Auth(axiosPublic, axiosPrivate)
+    auth: new Auth(axiosPublic, axiosPrivate),
+    address: new Address(axiosPrivate),
+    cart: new Cart(axiosPrivate),
+    notification: new Notification(axiosPrivate),
+    order: new Order(axiosPrivate),
+    orderitem: new OrderItem(axiosPrivate),
+    product: new Product (axiosPrivate),
+    shipment: new Shipment(axiosPrivate),
+    user: new User(axiosPrivate),
+    wishlist: new Wishlist(axiosPrivate)
 }
 
 axiosPrivate.interceptors.request.use(

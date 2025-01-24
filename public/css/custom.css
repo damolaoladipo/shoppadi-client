@@ -14,42 +14,64 @@
     color: #15a157 !important;
 }
 
-.container{
+.container {
     width: 100%;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
 }
 
-.container-inner{
+.container-inner {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8f8;
+}
+
+.container-inner .pair {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1; 
     width: 100%;
     height: 100%;
-    display: flex;
+
 }
 
-.container-inner .pair{
-    height: 100%;
-    
+.container-inner .pair.left {
+    max-width: 45%;
+
 }
-.container-inner .pair.left{
-    width: 45%;
-    padding: 2rem 7.5rem;
+
+.container-inner .pair.right {
+    max-width: 55%; 
 }
-.container-inner .pair.right{
-    width:  55%;
-    background-color: blue;
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 .auth-form {
-    width: 380px;
+    width: 100%;
+    max-width: 500px; 
     margin: 0 auto;
     padding: 40px;
+    border-radius: 10px;
+    
 }
 
 .auth-form .form-tab {
     width: 100%;
 }
 
-
-.auth-form .form-tab .inner{
+.auth-form .form-tab .inner {
     width: 54.3%;
     background-color: rgb(241, 247, 241);
     display: flex;
@@ -57,17 +79,15 @@
     border-radius: 22px;
 }
 
-.auth-form .form-tab .tab{
+.auth-form .form-tab .tab {
     padding: 0.8rem 1rem;
     border-radius: 20px;
 }
 
-.auth-form .form-tab .tab.active{
+.auth-form .form-tab .tab.active {
     background-color: #15a157;
     color: #fff;
 }
-
-
 
 .form .form-group {
     width: 100%;
@@ -85,8 +105,25 @@
     transition: all 0.35s ease-out;
 }
 
-.form input.form-control {
-    border-radius: 35px;
+.form .form-control.show-focus {
+    border: 1px solid #15a157 !important;
+}
+
+.form .btn {
+    display: block;
+    width: 100%;
+    padding: 1.2rem 1rem;
+    background-color: #15a157;
+    text-align: center;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form .btn:hover {
+    background-color: #138a49;
 }
 
 .form .input-icon {
@@ -99,18 +136,6 @@
     top: 36.5%;
 }
 
-.form .form-control.show-focus{
-    border: 1px solid  #15a157 !important;
-}
-
-.form .btn {
-    display: block;
-    width: 100%;
-    padding: 1.2rem 1rem;
-    background-color: #15a157;;
-    text-align: center;
-    border-radius: 35px;
-}
 
 .auth-form .auth-divider {
     width: 100%;
@@ -125,16 +150,19 @@
     margin: 0 auto;
 }
 
-.auth-form .auth-divider span { 
+.auth-form .auth-divider span {
     padding: 0.5rem 1rem;
-    background-color: rgb(255, 255, 255);
+    background-color: #f8f8f8;
     top: -2.8px;
-    left: 25.5%
+    left: 31.5%;
+    position: absolute;
+    border-radius: 10px;
 }
 
 .auth-form .brand-icons {
     display: flex;
     justify-content: center;
+    gap: 1rem; /* Spacing between social media icons */
 }
 
 .auth-form .icon-button {
@@ -145,6 +173,13 @@
     height: 60px;
     border-radius: 50px;
     border: 1px solid #15a157;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.auth-form .icon-button:hover {
+    background-color: #15a157;
+    color: #fff;
 }
 
 .auth-form .icon-button img {
@@ -152,4 +187,73 @@
     height: 40px;
 }
 
+.hero-image {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding-left: 30px;
+}
 
+.hero-image img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .container-inner {
+      flex-direction: column; /* Stack items vertically */
+      padding: 1rem; /* Add some padding */
+    }
+  
+    .container-inner .pair {
+      width: 100%; /* Take full width */
+      height: auto; /* Adjust height automatically */
+      max-width: none; /* Remove max-width restrictions */
+    }
+  
+    .container-inner .pair.left, 
+    .container-inner .pair.right {
+      max-width: 100%; /* Ensure both sections use the full width */
+      padding: 0; /* Remove padding for mobile */
+    }
+  
+    .auth-form {
+      padding: 20px; /* Reduce padding for smaller screens */
+    }
+  
+    .hero-image {
+        display: none;
+    }
+  
+    .auth-form .auth-divider span {
+      left: 50%; /* Center the "Or Continue with" text */
+      transform: translateX(-50%);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .auth-form {
+      padding: 15px; /* Further reduce padding for very small screens */
+    }
+  
+    .auth-form .btn {
+      font-size: 0.9rem; /* Adjust button font size */
+      padding: 1rem; /* Reduce button padding */
+    }
+  
+    .auth-form .icon-button {
+      width: 50px;
+      height: 50px;
+    }
+  
+    .auth-form .icon-button img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  

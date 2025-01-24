@@ -88,6 +88,57 @@ export interface IIconButton {
     }
 }
 
+export interface ICheckbox {
+  label: string;
+  checked: boolean;
+  onChange(e: ChangeEvent<HTMLInputElement>): void
+}
+
+export interface ILogo {
+  src: string;
+  alt: string;
+  className?: string;
+}
+
+export interface ITag {
+  label: string;
+  className?: string;
+  onRemove?: () => void;
+}
+
+export interface IHeading {
+  level?: 1 | 2 | 3 | 4 | 5 | 6;
+  children: React.ReactNode;
+  className?: string;
+}
+
+export interface IProgressTracker {
+  steps: string[];
+  currentStep: number;
+}
+
+export interface IBreadcrumbs {
+  links: { to: string; label: string }[];
+}
+
+export interface INavLink {
+  to: string;
+  label: string;
+}
+
+export interface INavigation {
+  links: { to: string; label: string }[];
+}
+
+export interface IMenu {
+  items: string[];
+}
+
+export interface IVideo {
+  src: string;
+  controls?: boolean;
+  autoPlay?: boolean;
+}
 
 export interface IAuthState {
   user: Record<string, any> | null;
@@ -153,8 +204,18 @@ export interface IAddressState {
     addresses: IAddress[];
   }
 
-  export interface IProvider {
+export interface IProvider {
     children: ReactNode;
   }
 
+export interface ISignupForm {
+    setSignupSuccess: (value: any) => void;
+  }
   
+export interface ISignupData {
+    firstName: string;
+    lastName: string;
+    email: string;
+    password: string;
+    confirmPassword: string;
+  }
