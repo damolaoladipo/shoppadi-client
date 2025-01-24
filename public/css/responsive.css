@@ -1,63 +1,25 @@
-.pcontainer {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px;
+/**
+Authentication 
+**/
+  
+@media (max-width: 480px) {
+    .auth-form {
+      padding: 15px;
+    }
+  
+    .auth-form .btn {
+      font-size: 0.9rem; 
+      padding: 1rem; 
+    }
+  
+    .auth-form .icon-button {
+      width: 50px;
+      height: 50px;
+    }
+  
+    .auth-form .icon-button img {
+      width: 30px;
+      height: 30px;
+    }
   }
   
-  .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 20px;
-  }
-  
-  .product-card {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .product-card img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-  }
-
-
-  .banner {
-    background-color: #F0F0F0; /* Light gray background */
-    text-align: center;
-    padding: 5rem 0;
-  }
-  
-  .banner-text {
-    color: #333; /* Dark gray text */
-  }
-  
-  .offer {
-    background-color: #E6F9D4; /* Light green background */
-    text-align: center;
-    padding: 2rem 0;
-  }
-  
-  .offer-text {
-    color: #333; /* Dark gray text */
-  }
-  
-  .deals {
-    margin-top: 2rem;
-  }
-  
-  .deal-text {
-    text-align: center;
-  }
-
-  .sticky-nav {
-    /* Add your desired styles for the sticky navigation bar here */
-    background-color: #fff; /* Light background color */
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    padding: 10px 20px; /* Adjust padding as needed */
-    position: fixed; /* Make the navbar sticky */
-    top: 0; /* Position at the top of the viewport */
-    width: 100%; /* Stretch across the entire width */
-    z-index: 10; /* Ensure the navbar stays on top of other elements */
-  }

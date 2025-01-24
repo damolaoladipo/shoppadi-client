@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Navigation from "../../layouts/Navigation";
 import ProductCard from "../../layouts/ProductCard";
+import HeroSection from "../../layouts/Hero";
 
 const Dashboard = () => {
   const [products, setProducts] = useState([
@@ -140,6 +141,8 @@ const Dashboard = () => {
     <>
       <div className="dashboard">
         <Navigation />
+
+        <HeroSection />
 
         <Container className="mt-4">
           <Row>
