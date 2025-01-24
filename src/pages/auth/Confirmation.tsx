@@ -40,9 +40,9 @@ const Confirmation = () => {
         
         <section>
 
-            <div className="container">
+            <div className="auth-container">
  
-                <div className="container-inner">
+                <div className="auth-container-inner">
 
                     <div className="pair left">
 

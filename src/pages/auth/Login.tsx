@@ -58,8 +58,8 @@ const Login = () => {
   return (
     <>
       <section>
-        <div className="container">
-          <div className="container-inner">
+        <div className="auth-container">
+          <div className="auth-container-inner">
 
           <div className="pair right pd2">
           <div className="hero-image">

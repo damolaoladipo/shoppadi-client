@@ -2,7 +2,6 @@ import axios from "axios";
 import Auth from "./auth";
 import Address from "./address";
 import Cart from "./cart";
-import { notification } from "antd";
 import Notification from "./notifcation";
 import Order from "./order";
 import OrderItem from "./orderitem";
@@ -13,7 +12,9 @@ import Wishlist from "./wishlist";
 
 
 
-const BaseURL = process.env.SHOPERY_API_URL_LOCAL
+const BaseURL = process.env.FRESHCART_API_URL_LOCAL
+
+console.log("log", process.env.FRESHCART_API_URL_LOCAL)
 
 export const axiosPublic = axios.create({
     baseURL: BaseURL,

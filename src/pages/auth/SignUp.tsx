@@ -58,8 +58,8 @@ const SignUp = () => {
   
     
     >
-      <div className="container" >
-        <div className="container-inner"
+      <div className="auth-container" >
+        <div className="auth-container-inner"
         
         >
           <div className="pair right" 

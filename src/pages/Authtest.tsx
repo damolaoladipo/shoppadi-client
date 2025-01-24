@@ -67,7 +67,7 @@ const SignupPage: React.FC = () => {
   };
 
   return (
-    <div className="container vh-100 d-flex align-items-center">
+    <div className="auth-container vh-100 d-flex align-items-center">
       <Row className="w-100">
         {/* Column 1: Image */}
         <Col md={6} className="d-flex justify-content-center align-items-center">

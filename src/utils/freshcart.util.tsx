@@ -78,20 +78,21 @@ export interface IToken {
 // Product Interface
 export interface IProduct {
   name: string;
-  description: string;
+  description?: string;
   price: number;
-  category: string;
-  tag: string[];
-  stockQuantity: number;
-  imageURLs: string[];
-  merchant: string;
-  inStock: boolean;
+  category?: string;
+  tag?: string[];
+  stockQuantity?: number;
+  image: string;
+  merchant?: string;
+  inStock?: boolean;
   discount: number;
-  count: number;
-  slug: string;
-  createdAt: string;
-  updatedAt: string;
-  id: string;
+  count?: number;
+  slug?: string;
+  rating?: number
+  createdAt?: string;
+  updatedAt?: string;
+  id: number | string;
 }
 
 // Cart Interface

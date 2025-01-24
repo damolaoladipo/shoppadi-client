@@ -1,5 +1,6 @@
 *{
     box-sizing: border-box;
+    
 }
 
 .brand-black, .brand-black a, .brand-black span{
@@ -14,7 +15,7 @@
     color: #15a157 !important;
 }
 
-.container {
+.auth-container {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -23,7 +24,7 @@
    
 }
 
-.container-inner {
+.auth-container-inner {
     width: 100%;
     max-width: 1200px;
     height: auto;
@@ -33,7 +34,7 @@
     background-color: #f8f8f8;
 }
 
-.container-inner .pair {
+.auth-container-inner .pair {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,12 +44,12 @@
 
 }
 
-.container-inner .pair.left {
+.auth-container-inner .pair.left {
     max-width: 45%;
 
 }
 
-.container-inner .pair.right {
+.auth-container-inner .pair.right {
     max-width: 55%; 
 }
 
@@ -206,24 +207,24 @@
 
 @media (max-width: 768px) {
     .container-inner {
-      flex-direction: column; /* Stack items vertically */
-      padding: 1rem; /* Add some padding */
+      flex-direction: column; 
+      padding: 1rem; 
     }
   
     .container-inner .pair {
-      width: 100%; /* Take full width */
-      height: auto; /* Adjust height automatically */
-      max-width: none; /* Remove max-width restrictions */
+      width: 100%; 
+      height: auto; 
+      max-width: none; 
     }
   
     .container-inner .pair.left, 
     .container-inner .pair.right {
-      max-width: 100%; /* Ensure both sections use the full width */
-      padding: 0; /* Remove padding for mobile */
+      max-width: 100%; 
+      padding: 0; 
     }
   
     .auth-form {
-      padding: 20px; /* Reduce padding for smaller screens */
+      padding: 20px;
     }
   
     .hero-image {
@@ -231,19 +232,19 @@
     }
   
     .auth-form .auth-divider span {
-      left: 50%; /* Center the "Or Continue with" text */
+      left: 50%; 
       transform: translateX(-50%);
     }
   }
   
   @media (max-width: 480px) {
     .auth-form {
-      padding: 15px; /* Further reduce padding for very small screens */
+      padding: 15px;
     }
   
     .auth-form .btn {
-      font-size: 0.9rem; /* Adjust button font size */
-      padding: 1rem; /* Reduce button padding */
+      font-size: 0.9rem; 
+      padding: 1rem; 
     }
   
     .auth-form .icon-button {
