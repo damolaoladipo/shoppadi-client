@@ -411,3 +411,52 @@
     font-size: 0.9rem;
   }
 }
+
+
+/**
+FILTER
+**/
+
+.fcontainer {
+  display: flex;
+}
+
+.fcol {
+  margin-right: 10px; 
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+.filter-container {
+  display: flex;
+  gap: 16px; 
+  flex-wrap: nowrap;
+  padding: 16px;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.filter-select {
+  border-radius: 8px; 
+  width: 100%;
+}
+
+.filter-select .ant-select-selector {
+  border-radius: 8px !important;
+  padding: 8px !important;
+  justify-content: end;
+}
+
+.rating-filter {
+  margin-right: 16px; 
+}
+
+.sort-filter {
+  flex-grow: 1; 
+}
+
+.filter-div {
+  justify-content: end;
+}

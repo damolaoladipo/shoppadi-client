@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import Navigation from "../../layouts/Navigation";
 import ProductCard from "../../layouts/ProductCard";
 import HeroSection from "../../layouts/Hero";
+import Filter from "../../layouts/Filter";
 
 const Dashboard = () => {
   const [products, setProducts] = useState([
@@ -144,10 +145,13 @@ const Dashboard = () => {
 
         <HeroSection />
 
+        <div className="mrgb2"></div>
+
+        <Filter />
+
         <Container className="mt-4">
           <Row>
             <Col>
-              <h2 className="mb-4">Our Products</h2>
               <Row xs={1} md={2} lg={4} className="g-4">
                 {products.map((product) => (
                   <Col key={product.id}>
