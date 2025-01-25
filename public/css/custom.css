@@ -550,28 +550,28 @@ FILTER
   color: #00aaff;  /* Modern blue hover effect */
 }
 
-.dropdown {
+.footer-dropdown {
   display: none;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.dropdown.open {
+.footer-dropdown.open {
   display: block;
 }
 
-.dropdown li {
+.footer-dropdown li {
   margin-bottom: 8px;
 }
 
-.dropdown a {
+.footer-dropdown a {
   color: #fff;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.dropdown a:hover {
+.footer-dropdown a:hover {
   color: #00aaff;
 }
 
@@ -628,4 +628,36 @@ FILTER
   opacity: 0.7;
   margin-bottom: 20px;
   width: 100%;
+}
+
+
+
+
+.benefits-section {
+  background-color: #f8f9fa; /* Light gray background */
+  padding: 30px 0;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 30px;
+}
+
+.benefit-item {
+  text-align: center;
+}
+
+.benefit-icon {
+  font-size: 3rem;
+  color: #009688; /* Green color */
+  margin-bottom: 20px;
+}
+
+.benefit-item h3 {
+  margin-bottom: 10px;
+}
+
+.benefit-item p {
+  color: #6c757d; /* Gray text color */
 }

@@ -6,6 +6,7 @@ import HeroSection from "../../layouts/Hero";
 import Filter from "../../layouts/Filter";
 import Category from "../../layouts/Category";
 import Footer from "../../layouts/Footer";
+import Benefits from "../../layouts/Benefits";
 
 const Dashboard = () => {
   const [products, setProducts] = useState([
@@ -171,9 +172,13 @@ const Dashboard = () => {
             </Col>
           </Row>
         </Container>
-
+        <div className="mrgb4"></div>
+        
 
         <Category/>
+        <div className="mrgb4"></div>
+
+        <Benefits/>
 
         <Footer/>
 
