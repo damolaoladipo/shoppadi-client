@@ -4,6 +4,8 @@ import Navigation from "../../layouts/Navigation";
 import ProductCard from "../../layouts/ProductCard";
 import HeroSection from "../../layouts/Hero";
 import Filter from "../../layouts/Filter";
+import Category from "../../layouts/Category";
+import Footer from "../../layouts/Footer";
 
 const Dashboard = () => {
   const [products, setProducts] = useState([
@@ -169,6 +171,12 @@ const Dashboard = () => {
             </Col>
           </Row>
         </Container>
+
+
+        <Category/>
+
+        <Footer/>
+
       </div>
     </>
   );
