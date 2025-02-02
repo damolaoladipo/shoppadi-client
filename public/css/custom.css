@@ -900,3 +900,41 @@ h2 {
     margin-bottom: 20px;
   }
 }
+
+
+
+
+/* ADDRESS */
+.billing-address-card {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.billing-address-card h3 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.address-details {
+  margin-bottom: 15px;
+}
+
+.address-details p {
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.edit-button {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+
+
+

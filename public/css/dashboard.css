@@ -1,0 +1,41 @@
+.navigation-container {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .navigation-container h2 {
+    margin-bottom: 15px;
+  }
+  
+  .navigation-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .navigation-list li {
+    padding: 10px 20px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+  }
+  
+  .navigation-list li:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .navigation-list li.active {
+    background-color: #e6f9d4; 
+  }
+  
+  .navigation-item.active {
+    background-color: #e6f9d4;
+  }
+  
+  .icon {
+    margin-right: 10px;
+  }
+
+  .icon {
+    margin-right: 10px;
+    font-size: 1.2rem; 
+  }

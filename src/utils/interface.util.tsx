@@ -219,3 +219,14 @@ export interface ISignupData {
     password: string;
     confirmPassword: string;
   }
+
+
+export interface ICountryOption {
+  value: string;
+  label: string;
+}
+
+export interface IStateOption {
+  value: string;
+  label: string;
+}

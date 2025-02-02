@@ -219,3 +219,15 @@ export interface ICartItem {
   quantity: number;
   imageURL: string;
 }
+
+export interface IBillingAddress {
+  firstName: string;
+  lastName: string;
+  company: string;
+  streetAddress: string;
+  country: string;
+  state: string;
+  zipCode: string;
+  phoneNumber: string;
+  email: string; 
+}
