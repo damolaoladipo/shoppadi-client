@@ -77,6 +77,7 @@ export interface IToken {
 
 // Product Interface
 export interface IProduct {
+  discountedPrice?: any;
   name: string;
   description?: string;
   price: number;
@@ -93,6 +94,8 @@ export interface IProduct {
   createdAt?: string;
   updatedAt?: string;
   id: number | string;
+  onAddToCart: (product: IProduct) => void;
+  onClick: () => void;
 }
 
 // Cart Interface

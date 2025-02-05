@@ -6,7 +6,16 @@ import ForgotPassword from "./pages/auth/ForgotPassword";
 import Confirmation from "./pages/auth/Confirmation";
 import Preview from "./pages/preview";
 import SignUp from "./pages/auth/SignUp";
-import Dashboard from "./pages/Dashboard/Homepage";
+import Dashboard from "./pages/dashboard/Homepage";
+import Wishlist from "./pages/dashboard/Wishlist";
+import Order from "./pages/dashboard/OrderHistory";
+import User from "./pages/dashboard/User";
+import Settings from "./pages/dashboard/Settings";
+import OrderDetails from "./pages/dashboard/OrderDetails";
+import OrderHistory from "./pages/dashboard/OrderHistory";
+import Checkout from "./pages/dashboard/Checkout";
+import ProductDetails from "./pages/dashboard/Test";
+import ShoppingCart from "./pages/dashboard/Cart";
 
 
 const Login = React.lazy(() => import("./pages/auth/Login"));
@@ -37,6 +46,16 @@ const App = () => {
             <Route path="/welcome" element={<Welcome />} />
             <Route path="/confirmation" element={<Confirmation />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
+
+            
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/cart" element={<ShoppingCart />} />
+            <Route path="/order" element={<OrderDetails/>} />
+            <Route path="/order-details" element={< OrderHistory />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/user" element={<User />} />
+
           </Routes>
         </ErrorBoundary>
       </Suspense>

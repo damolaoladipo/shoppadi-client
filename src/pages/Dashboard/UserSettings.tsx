@@ -1,17 +1,24 @@
 import React, { useState } from 'react';
 import { Form, Row, Col, Container, Button } from 'react-bootstrap';
 
-const BillingInformation = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [company, setCompany] = useState('');
-  const [streetAddress, setStreetAddress] = useState('');
-  const [country, setCountry] = useState('');
-  const [state, setState] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [shipToDifferentAddress, setShipToDifferentAddress] = useState(false);
-  const [orderNotes, setOrderNotes] = useState('');
+const BillingAddress = () => {
+  const [firstName, setFirstName] = useState('Dianne');
+  const [lastName, setLastName] = useState('Dianne');
+  const [company, setCompany] = useState('Zakirsoft');
+  const [streetAddress, setStreetAddress] = useState('4140 Park');
+  const [country, setCountry] = useState('United States');
+  const [state, setState] = useState('Washington DC');
+  const [zipCode, setZipCode] = useState('20033');
+  const [email, setEmail] = useState('diainne.russell@gmail.com');
+  const [phone, setPhone] = useState('(603) 555-0123');
+  const [selectedImage, setSelectedImage] = useState<File | null>(null);
+
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files;
+    if (files && files[0]) {
+      setSelectedImage(files[0]);
+    }
+  };
 
   const handleSubmit = (event: { preventDefault: () => void; }) => {
     event.preventDefault();
@@ -23,16 +30,16 @@ const BillingInformation = () => {
       streetAddress,
       country,
       state,
+      zipCode,
       email,
       phone,
-      shipToDifferentAddress,
-      orderNotes,
+      selectedImage,
     });
   };
 
   return (
     <Container>
-      <h2 className="billing-info-title">Billing Information</h2>
+      <h2 className="billing-info-title">Billing Address</h2>
       <Form onSubmit={handleSubmit}>
         <Row>
           <Col md={4}>
@@ -81,7 +88,7 @@ const BillingInformation = () => {
         </Form.Group>
 
         <Row>
-          <Col md={6}>
+          <Col md={4}>
             <Form.Group controlId="country">
               <Form.Label>Country / Region</Form.Label>
               <Form.Select value={country} onChange={(e) => setCountry(e.target.value)}>
@@ -92,7 +99,7 @@ const BillingInformation = () => {
               </Form.Select>
             </Form.Group>
           </Col>
-          <Col md={6}>
+          <Col md={4}>
             <Form.Group controlId="state">
               <Form.Label>State</Form.Label>
               <Form.Select value={state} onChange={(e) => setState(e.target.value)}>
@@ -101,6 +108,17 @@ const BillingInformation = () => {
                 <option value="Washington DC">Washington DC</option>
                 {/* ... other states */}
               </Form.Select>
+            </Form.Group>
+          </Col>
+          <Col md={4}>
+            <Form.Group controlId="zipCode">
+              <Form.Label>Zip Code</Form.Label>
+              <Form.Control
+                type="text"
+                value={zipCode}
+                onChange={(e) => setZipCode(e.target.value)}
+                placeholder="20033"
+              />
             </Form.Group>
           </Col>
         </Row>
@@ -130,35 +148,20 @@ const BillingInformation = () => {
           </Col>
         </Row>
 
-        <div className="form-check">
-          <Form.Check
-            type="checkbox"
-            id="shipToDifferentAddress"
-            label="Ship to a different address"
-            checked={shipToDifferentAddress}
-            onChange={() => setShipToDifferentAddress(!shipToDifferentAddress)}
-          />
-        </div>
-
-        <h2 className="additional-info-title">Additional Info</h2>
-
-        <Form.Group controlId="orderNotes">
-          <Form.Label>Order Notes (Optional)</Form.Label>
-          <Form.Control
-            as="textarea"
-            rows={3}
-            value={orderNotes}
-            onChange={(e) => setOrderNotes(e.target.value)}
-            placeholder="Notes about your order, e.g. special notes for delivery"
-          />
+        <Form.Group controlId="imageUpload">
+          <Form.Label>Choose Image</Form.Label>
+          <Form.Control type="file" onChange={(e) => handleFileUpload(e as React.ChangeEvent<HTMLInputElement>)} />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
-          Save Changes
-        </Button>
+        <div className="text-center">
+          <Button variant="primary" type="submit">
+            Save Changes
+          </Button>
+        </div>
       </Form>
     </Container>
   );
 };
 
-export default BillingInformation;
+export default BillingAddress;
+

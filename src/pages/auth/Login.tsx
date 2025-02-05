@@ -7,6 +7,7 @@ import PasswordInput from "../../components/input/PasswordInput";
 import Button from "../../components/Button/Button";
 import IconButton from "../../components/Button/IconButton";
 import { notification } from "antd";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [form, setForm] = useState({
@@ -112,6 +113,13 @@ const Login = () => {
                 </div>
 
                 <div className="mrgb2"></div>
+
+                <p style={{ textAlign: "center" }} className="fs-15 brand-gray font-dmsans">
+                  Don't have an account?{" "}
+                  <Link to="/register" className="brand-green">
+                    Register here
+                  </Link>
+                </p>
 
                 <div className="auth-divider mrgb1">
                   <div className="line"></div>

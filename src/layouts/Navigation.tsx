@@ -6,15 +6,18 @@ import {
   Button,
   Form,
   FormControl,
-  Badge,
-  Dropdown
+  Dropdown,
 } from "react-bootstrap";
 import { AiOutlineSearch, AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
+import { INavigationCart } from "../utils/interface.util";
 
-const Navigation = () => {
-  const [cartCount, setCartCount] = useState(0);
-  const [cartTotal, setCartTotal] = useState(0.0);
+const Navigation = ({ cartCount, handleCartToggle }: INavigationCart) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // Handler to toggle the cart visibility
+  const onCartClick = () => {
+    handleCartToggle();
+  };
 
   return (
     <>
@@ -47,7 +50,7 @@ const Navigation = () => {
               </Nav.Link>
             </Nav>
 
-             <Form className="d-flex align-items-center position-relative" style={{ maxWidth: "300px", flexGrow: "1" }}>
+            <Form className="d-flex align-items-center position-relative" style={{ maxWidth: "300px", flexGrow: "1" }}>
               <FormControl
                 type="search"
                 placeholder="Search"
@@ -72,35 +75,28 @@ const Navigation = () => {
               />
             </Form>
 
-            {/* Icons Section */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "20px",
-                marginLeft: "20px",
-              }}
-            >
-              {/* Cart Icon with Badge */}
-              <div style={{ textAlign: "center", cursor: "pointer" }}>
-              <div
-                style={{
-                  position: "relative",
-                  cursor: "pointer",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  borderRadius: "50%",
-                  padding: "10px",
-                  transition: "all 0.3s ease-in-out",
-                }}
-                className="icon-container"
-              >
-                <AiOutlineShoppingCart size={28} style={{ color: "#15A157" }} />
-              </div>
+            <div style={{ display: "flex", alignItems: "center", gap: "20px", marginLeft: "20px" }}>
+              <div style={{ textAlign: "center", cursor: "pointer" }} onClick={onCartClick}>
+                <div
+                  style={{
+                    position: "relative",
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderRadius: "50%",
+                    padding: "10px",
+                    transition: "all 0.3s ease-in-out",
+                  }}
+                  className="icon-container"
+                >
+                  <AiOutlineShoppingCart size={28} style={{ color: "#15A157" }} />
+                  {cartCount > 0 && (
+                    <span className="cart-count">{cartCount}</span> // Display cart item count
+                  )}
+                </div>
               </div>
 
-              {/* User Icon */}
               <Dropdown>
                 <Dropdown.Toggle
                   as="div"
@@ -118,83 +114,91 @@ const Navigation = () => {
                   <AiOutlineUser size={28} style={{ color: "#15A157" }} />
                 </Dropdown.Toggle>
 
-                <Dropdown.Menu align="end" 
-                style={{
-                    borderRadius: "10px",
-                    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
-                    padding: "10px",
-                    minWidth: "200px",
-                  }}>
+                <Dropdown.Menu align="end" style={{ borderRadius: "10px", boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)", padding: "10px", minWidth: "200px" }}>
                   {isLoggedIn ? (
-                    <  > 
-                      <Dropdown.Item 
-                      href="#orders"
-                      style={{
-                        padding: "10px",
-                        borderRadius: "6px",
-                        transition: "all 0.3s ease-in-out",
-                      }}
-                      className="dropdown-modern">Orders</Dropdown.Item>
-
-                      <Dropdown.Item 
-                      href="#wishlist"
-                      style={{
-                        padding: "10px",
-                        borderRadius: "6px",
-                        transition: "all 0.3s ease-in-out",
-                      }}
-                      className="dropdown-modern">Wishlist</Dropdown.Item>
-
-                      <Dropdown.Item 
-                      href="#account"
-                      style={{
-                        padding: "10px",
-                        borderRadius: "6px",
-                        transition: "all 0.3s ease-in-out",
-                      }}
-                      className="dropdown-modern">Account</Dropdown.Item>
-
-                      <Dropdown.Item 
-                      href="#settings"
-                      style={{
-                        padding: "10px",
-                        borderRadius: "6px",
-                        transition: "all 0.3s ease-in-out",
-                      }}
-                      className="dropdown-modern">Settings</Dropdown.Item>
-
+                    <>
+                      <Dropdown.Item
+                        href="#orders"
+                        style={{
+                          padding: "10px",
+                          borderRadius: "6px",
+                          transition: "all 0.3s ease-in-out",
+                        }}
+                        className="dropdown-modern"
+                      >
+                        Orders
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        href="#wishlist"
+                        style={{
+                          padding: "10px",
+                          borderRadius: "6px",
+                          transition: "all 0.3s ease-in-out",
+                        }}
+                        className="dropdown-modern"
+                      >
+                        Wishlist
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        href="#account"
+                        style={{
+                          padding: "10px",
+                          borderRadius: "6px",
+                          transition: "all 0.3s ease-in-out",
+                        }}
+                        className="dropdown-modern"
+                      >
+                        Account
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        href="#settings"
+                        style={{
+                          padding: "10px",
+                          borderRadius: "6px",
+                          transition: "all 0.3s ease-in-out",
+                        }}
+                        className="dropdown-modern"
+                      >
+                        Settings
+                      </Dropdown.Item>
                       <Dropdown.Divider />
                       <Dropdown.Item
                         href="#logout"
                         onClick={() => setIsLoggedIn(false)}
                         style={{
-                            padding: "10px",
-                            borderRadius: "6px",
-                            transition: "all 0.3s ease-in-out",
-                          }}
-                          className="dropdown-modern"
+                          padding: "10px",
+                          borderRadius: "6px",
+                          transition: "all 0.3s ease-in-out",
+                        }}
+                        className="dropdown-modern"
                       >
                         Logout
                       </Dropdown.Item>
                     </>
                   ) : (
                     <>
-                      <Dropdown.Item 
-                      href="#signin" 
-                      style={{
+                      <Dropdown.Item
+                        href="/login"
+                        style={{
                           padding: "10px",
                           borderRadius: "6px",
                           transition: "all 0.3s ease-in-out",
                         }}
-                        className="dropdown-modern">Sign In</Dropdown.Item>
-                      <Dropdown.Item 
-                      href="#signup"
-                      style={{
-                        padding: "10px",
-                        borderRadius: "6px",
-                        transition: "all 0.3s ease-in-out",
-                      }}
-                      className="dropdown-modern">Sign Up</Dropdown.Item>
+                        className="dropdown-modern"
+                      >
+                        Sign In
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        href="/register"
+                        style={{
+                          padding: "10px",
+                          borderRadius: "6px",
+                          transition: "all 0.3s ease-in-out",
+                        }}
+                        className="dropdown-modern"
+                      >
+                        Sign Up
+                      </Dropdown.Item>
                     </>
                   )}
                 </Dropdown.Menu>
@@ -204,7 +208,6 @@ const Navigation = () => {
         </Container>
       </Navbar>
 
-      {/* Styles for hover effects */}
       <style>{`
         .nav-link-modern {
           font-size: 1rem;
@@ -230,6 +233,16 @@ const Navigation = () => {
         .dropdown-modern:hover {
           background-color: #f8f9fa;
           color: #15a157;
+        }
+        .cart-count {
+          position: absolute;
+          top: -5px;
+          right: -5px;
+          background-color: red;
+          color: white;
+          border-radius: 50%;
+          font-size: 12px;
+          padding: 4px 8px;
         }
       `}</style>
     </>

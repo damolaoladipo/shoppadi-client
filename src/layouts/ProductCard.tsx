@@ -5,10 +5,11 @@ import { AiFillStar } from "react-icons/ai";
 import { IProduct } from "../utils/freshcart.util";
 
 const ProductCard = (props: IProduct) => {
-  const { name, price, discount, image, rating } = props;
+  const { name, price, discount, image, rating, onAddToCart, onClick } = props;
 
   const [liked, setLiked] = useState(false);
   const [isCartClicked, setCartClicked] = useState(false);
+  
   const safeRating = rating ?? 0;
 
   const handleLike = () => {
@@ -20,7 +21,7 @@ const ProductCard = (props: IProduct) => {
   };
 
   return (
-    <Card className="product-card" style={{ padding: "5px" }}>
+    <Card className="product-card" style={{ padding: "5px" }} onClick={onClick}>
       <div className="card-image" style={{ position: "relative" }}>
         <Card.Img variant="top" src={image} alt={name} />
         <div

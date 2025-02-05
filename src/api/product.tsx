@@ -1,4 +1,5 @@
 class Product {
+    [x: string]: any;
     client;
     secondaryClient;
   

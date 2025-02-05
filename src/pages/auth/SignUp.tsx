@@ -7,6 +7,7 @@ import PasswordInput from "../../components/input/PasswordInput";
 import Title from "../../components/title/Title";
 import Button from "../../components/Button/Button";
 import IconButton from "../../components/Button/IconButton";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const [form, setForm] = useState({
@@ -83,7 +84,7 @@ const SignUp = () => {
               <p className="fs-18 brand-gray font-dmsans">
                 Setting up an account takes less than one minute
               </p>
-              <div className="mrgb2"></div>
+              <div className="mrgb1"></div>
               <div className="form signup-form">
                 <TextInput
                   type="text"
@@ -137,7 +138,15 @@ const SignUp = () => {
                 <Button text="Sign Up" onClick={handleSubmit} />
               </div>
 
-              <div className="mrgb2"></div>
+              <div className="mrgb1"></div>
+
+              
+              <p style={{ textAlign: "center" }} className="fs-15 brand-gray font-dmsans">
+                You already have an account?{" "}
+                <Link to="/login" className="brand-green">
+                  Login here
+                </Link>
+              </p>
 
               <div className="auth-divider mrgb1">
                 <div className="line"></div>

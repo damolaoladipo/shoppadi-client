@@ -26,7 +26,7 @@ export interface ITitle {
 }
 
 export interface ITextInput{
-    type: 'email' | 'text'
+    type: 'email' | 'text' | 'number' | 'password' | 'tel' | 'search' | 'url'
     ref?: RefObject<HTMLInputElement>
     showFocus?: boolean
     className?: string
@@ -34,6 +34,7 @@ export interface ITextInput{
     readonly?: boolean
     id?: string
     hasIcon?: boolean
+    value?: string
     icon?: string
     name?: string
     placeholder?: string
@@ -229,4 +230,15 @@ export interface ICountryOption {
 export interface IStateOption {
   value: string;
   label: string;
+}
+
+
+export interface IShoppingCart {
+  isOpen: boolean
+  onClose: () => void;
+}
+
+export interface INavigationCart{
+  cartCount: number;
+  handleCartToggle: () => void;
 }

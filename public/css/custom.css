@@ -31,7 +31,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f8f8f8;
+    background-color: #f8f8f8 !important;
 }
 
 .auth-container-inner .pair {
@@ -668,12 +668,8 @@ FILTER
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-body {
   font-family: 'Poppins', sans-serif;
-  background-color: #f7f7f7;
-  color: #333;
+
 }
 
 /* Product Details */
@@ -683,7 +679,7 @@ body {
   gap: 20px;
   margin: 30px auto;
   max-width: 1200px;
-  background-color: #fff;
+  background-color: #f7f7f7;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -938,3 +934,30 @@ h2 {
 
 
 
+.file-upload-container {
+  width: 300px; /* Adjust width as needed */
+  padding: 30px;
+  border: 1px dashed #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.cloud-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.cloud-icon svg {
+  margin-right: 5px;
+}
+
+.text {
+  font-size: 16px;
+}
+
+.text a {
+  color: #007bff;
+  text-decoration: none;
+}
