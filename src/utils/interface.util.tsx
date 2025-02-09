@@ -74,6 +74,8 @@ export interface IRadioInput{
 
 export interface IButton{
     text: string
+    loading?: boolean;
+    to?: string;
     onClick(e: any): void
 }
 

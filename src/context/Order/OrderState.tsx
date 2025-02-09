@@ -1,7 +1,7 @@
 import { FC, useReducer } from "react";
 import { IOrderProvider, IOrderState } from "../../utils/interface.util";
 import { orderReducer } from "./OrderReducer";
-import { ProductContext } from "../Product/ProductContext";
+import { OrderContext } from "./OrderContext";
 
 
 const initialState: IOrderState = {
@@ -10,13 +10,13 @@ const initialState: IOrderState = {
   error: null,
 };
 
-export const ProductProvider: FC<IOrderProvider> = ({ children }) => {
+export const OrderProvider: FC<IOrderProvider> = ({ children }) => {
   const [state, dispatch] = useReducer(orderReducer, initialState);
 
   return (
-    <ProductContext.Provider value={{ ...state, dispatch }}>
+    <OrderContext.Provider value={{ ...state, dispatch }}>
       {children}
-    </ProductContext.Provider>
+    </OrderContext.Provider>
   );
 };
 

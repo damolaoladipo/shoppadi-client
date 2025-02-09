@@ -7,7 +7,7 @@ import PasswordInput from "../../components/input/PasswordInput";
 import Title from "../../components/title/Title";
 import Button from "../../components/Button/Button";
 import IconButton from "../../components/Button/IconButton";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [form, setForm] = useState({
@@ -17,13 +17,21 @@ const SignUp = () => {
     password: "",
   });
 
+  const navigate = useNavigate();
+
   const signupMutation = useMutation({
-    mutationFn: (payload: any) => axiosAPI.auth.register(payload),
+    mutationFn: (payload: any) => {
+      return axiosAPI.auth.register(payload)
+    },
     onSuccess: () => {
       notification.success({
         message: "Registration Successful!",
         description: "Your account has been created successfully.",
       });
+
+      setTimeout(() => {
+        navigate("/login");
+      }, 1500);
     },
     onError: (error: any) => {
       notification.error({
@@ -135,7 +143,10 @@ const SignUp = () => {
 
                 <div className="mrgb2"></div>
 
-                <Button text="Sign Up" onClick={handleSubmit} />
+                <Button 
+                text="Sign Up" 
+                loading={signupMutation.isPending}
+                onClick={handleSubmit} />
               </div>
 
               <div className="mrgb1"></div>

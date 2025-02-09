@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import axiosAPI from "../../api/axios";
 import Title from "../../components/title/Title";
@@ -7,33 +7,37 @@ import PasswordInput from "../../components/input/PasswordInput";
 import Button from "../../components/Button/Button";
 import IconButton from "../../components/Button/IconButton";
 import { notification } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/Auth/AuthContext";
 
 const Login = () => {
   const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
     email: "",
     password: "",
   });
 
+  const navigate = useNavigate();
+  const { dispatch } = useContext(AuthContext);
+
   useEffect(() => {}, []);
 
-  const signupMutation = useMutation({
-    mutationFn: (payload: any) => axiosAPI.auth.register(payload),
-    onSuccess: () => {
-      notification.success({
-        message: "Registration Successful!",
-        description: "Your account has been created successfully.",
-      });
+  const loginMutation = useMutation({
+    mutationFn: (payload: any) => {
+      return axiosAPI.auth.login(payload)
+    },       
+    onSuccess: async (data: any) => {
+        localStorage.setItem(
+        "authToken",
+        JSON.stringify(data?.data?.data?.authToken)
+      );
+      dispatch({ type: "LOGIN", payload: data?.data?.data });
+      navigate("/");     
     },
     onError: (error: any) => {
       notification.error({
-        message:
-          error.response?.data?.errors?.[0] ||
-          error.response?.data?.message ||
-          "An error occurred.",
-        description: undefined,
+        message: error.response.data.errors[0] ??
+          error.response.data.message,
+        description: undefined
       });
     },
   });
@@ -43,7 +47,7 @@ const Login = () => {
   };
 
   const handleSubmit = async () => {
-    const { firstName, lastName, email, password } = form;
+    const { email, password } = form;
 
     if (!email || !password) {
       notification.error({
@@ -53,7 +57,7 @@ const Login = () => {
       return;
     }
 
-    await signupMutation.mutate({ firstName, lastName, email, password });
+    await loginMutation.mutate(form);
   };
 
   return (
@@ -88,6 +92,7 @@ const Login = () => {
                 <div className="form login-form">
                   <TextInput
                     type="email"
+                    id="email"
                     hasIcon={true}
                     icon="fe-at-sign"
                     showFocus={true}
@@ -99,6 +104,7 @@ const Login = () => {
 
                   <PasswordInput
                     hasIcon={true}
+                    id="password"
                     icon="fe-lock"
                     showFocus={true}
                     placeholder="Enter password"
@@ -109,7 +115,10 @@ const Login = () => {
 
                   <div className="mrgb3"></div>
 
-                  <Button text="Login" onClick={handleSubmit} />
+                  <Button 
+                  text="Login" 
+                  loading={loginMutation.isPending}
+                  onClick={handleSubmit} />
                 </div>
 
                 <div className="mrgb2"></div>

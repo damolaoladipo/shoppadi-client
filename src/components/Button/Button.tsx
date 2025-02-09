@@ -1,29 +1,26 @@
-import { useEffect } from 'react';
+import { Link } from "react-router-dom";
 import { IButton } from "../../utils/interface.util";
-import { Link } from 'react-router-dom'
 
-const Button = (props: IButton) => {
-
-    const {
-        text,
-        onClick
-    } = props
-
-    useEffect(() => {
-    
-    }, []);
-
-    return (
-        <>
-            <div  className="form-group ui-relative mrgb1">
-                <Link 
-                to='' 
-                className='btn font-dmsans-bold onwhite'
-                onClick={(e) => onClick(e)}>{text}</Link>
-            </div>
-            
-        </>
-    );
+const Button = ({ text, loading = false, onClick, to }: IButton) => {
+  return (
+    <div className="form-group ui-relative mrgb1">
+      {to ? (
+        <Link
+          to={to}
+          className={`btn font-dmsans-bold onwhite ${loading ? "loading" : ""}`}
+        >
+          {loading ? "Loading..." : text}
+        </Link>
+      ) : (
+        <div
+          className={`btn font-dmsans-bold onwhite ${loading ? "loading disabled" : ""}`}
+          onClick={!loading ? onClick : undefined} 
+        >
+          {loading ? "Loading..." : text}
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default Button;

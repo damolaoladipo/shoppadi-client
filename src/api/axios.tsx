@@ -14,14 +14,16 @@ import Wishlist from "./wishlist";
 
 const BaseURL = process.env.FRESHCART_API_URL_LOCAL
 
-console.log("log", process.env.FRESHCART_API_URL_LOCAL)
+console.log("log api url", process.env.FRESHCART_API_URL_LOCAL)
 
 export const axiosPublic = axios.create({
-    baseURL: BaseURL,
+    baseURL: "http://localhost:5005/v1"
+    
 })
+console.log("log url", process.env.FRESHCART_API_URL_LOCAL)
 
 export const axiosPrivate = axios.create({
-    baseURL: BaseURL,
+    baseURL: "http://localhost:5005/v1",
     headers: {
         "Content-Type": "application/json"
     },
